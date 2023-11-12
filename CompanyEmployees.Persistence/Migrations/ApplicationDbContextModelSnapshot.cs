@@ -31,7 +31,7 @@ namespace CompanyEmployees.Persistence.Migrations
 
                     b.HasIndex("EmployeesId");
 
-                    b.ToTable("CompanyEmployee");
+                    b.ToTable("CompanyEmployee", (string)null);
                 });
 
             modelBuilder.Entity("CompanyEmployees.Persistence.Entities.Company", b =>
@@ -52,7 +52,7 @@ namespace CompanyEmployees.Persistence.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("CompanyEmployees.Persistence.Entities.Employee", b =>
@@ -76,7 +76,7 @@ namespace CompanyEmployees.Persistence.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("CompanyEmployee", b =>

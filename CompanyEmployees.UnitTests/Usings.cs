@@ -1,1 +1,12 @@
+global using CompanyEmployees.Common.Errors;
+global using CompanyEmployees.Common.Models;
+global using CompanyEmployees.Core.Dto;
+global using CompanyEmployees.Core.Services;
+global using CompanyEmployees.Persistence;
+global using CompanyEmployees.Persistence.Entities;
+global using CompanyEmployees.Persistence.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Microsoft.Extensions.Logging;
+global using Moq;
 global using NUnit.Framework;

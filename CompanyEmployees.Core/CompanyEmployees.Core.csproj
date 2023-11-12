@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <AnalysisLevel>6.0-recommended</AnalysisLevel>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -15,5 +16,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyEmployees.Common\CompanyEmployees.Common.csproj" />
+    <ProjectReference Include="..\CompanyEmployees.Persistence\CompanyEmployees.Persistence.csproj" />
+  </ItemGroup>
 
 </Project>
