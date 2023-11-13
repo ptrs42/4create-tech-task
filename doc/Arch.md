@@ -43,6 +43,14 @@ This is the infrastructure layer. It contains persistence models, repositories a
 
 Tests for different parts of the application. Since TDD approach was used up to a point during the development of this project this was an integral part of the solution.
 
+## Design principles
+
+Following KISS principle along with good engineering practices from OOP and clean code paradigms is key. Simplicity, however should not be sacrificed. 
+
+It is better to err on the side of verbosity and writin code which is more procedural in nature then to have too much complexity just to satisfy OOP and clean code practices. 
+
+For example, sometimes it is better to have several classes that result in a type system that aids the engineers, but most of the time an enum will do just fine. Making a lot of validators might make sense if they can be reused, but doing manual validation might be a better approach when validation is done in pnly one place. Greater complexity should be an emergent property.  
+
 ## Dependency management
 
 External libraries should be managed using the standard nuget package manager integrated in Visual Studio.
@@ -66,6 +74,8 @@ Solution-wide configurations enforcing coding style and best coding practices ar
 All projects are configured so that warnings are treated as errors. XML documentation is turned on so all missing documentation comments for public classes, methods, properties, enums, etc., will raise a warning which will also be treated as an error during compilation. 
 
 Code metrics should be checked regularly. Maintainability index should be above 20 (indicator is green), Cyclomatic complexity should be below 25 for methods which is enforced by CA1502 maintanability rule which by default produces a warning if it reaches that number or above. Both Maintainability index and Cyclomatic complexity should be evaluated together.
+
+Naming is very important and it is better to err on the side of verbosity.
 
 ## Data persistence and auditing
 
