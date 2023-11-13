@@ -9,7 +9,7 @@ To setup the development environment follow these steps in order.
 1. Optionally install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 1. Get the source code of the project using git
 1. Install CodeMaid Visual Studio Plugin and import the configuration located in ```CodeMaid.config```
-1. Make a copy of ```appsettings.Development-template.json``` in the CompanyEmployees.Web project and rename it to ```appsettings.Development.json```, then change connection string to match your MySQL server configuration.
+1. Make a copy of ```appsettings.Development-template.json``` in the CompanyEmployees.Api project and rename it to ```appsettings.Development.json```, then change connection string to match your MySQL server configuration.
 1. In Visual Studio open the package manager console and run ```Update-Database -StartupProject CompanyEmployees.Api -Project CompanyEmployees.Persistence -Context ApplicationDbContext```
 1. In Visual Studio open the package manager console and run ```Update-Database -StartupProject CompanyEmployees.Api -Project CompanyEmployees.Persistence -Context AuditDbContext```
 
