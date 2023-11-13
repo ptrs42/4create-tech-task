@@ -20,3 +20,5 @@ There are several projects within this solution, namely:
 - CompanyEmployees.Core - Place for all the services and business logic
 - CompanyEmployees.Persistence - Contains persistence models, repositories and code first migrations based on EF Core
 - CompanyEmployees.UnitTests - Unit tests for different parts of the application
+
+All of this and more is better described in the Architecture document under ```doc/Arch.md```
