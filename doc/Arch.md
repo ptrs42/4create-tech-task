@@ -33,6 +33,7 @@ Some improvement points:
 
 - Using a nuget package such as FluentValidation for implementing validators. Most of the validations in the current implementation rely on the state of the database so this was not implemented here. Such validators should validate the data based on certain domain rules which do not rely on the state of the database (e.g., use validators to enforce valid ranges, mutually exclusive options, etc. instead of checking the uniqueness of an email address or a company name.)
 - Implement specification pattern for the purpose of running validations that do rely on the state of the database. This is a double edged sword, on one hand it keeps the code in the services small or at least smaller and the these validations become reusable. On the other hand if such a specification validation is used only once and there are many of them, this becomes much less readable.
+- Use AutoMapper nuget package to add automatic mapping of entities to DTOs and vice versa. 
 
 ### CompanyEmployees.Persistence
 
@@ -123,3 +124,7 @@ Certain domains, especially when taken in some particular regional context, may 
 ### Security
 
 Authentication, Authorization and other socurity concerns are out of scope for this task, but should be considered carefully for any production-grade system.
+
+### Localization and Internationalization
+
+These should also be considered in a production-grade system but are out of scope for this project.
