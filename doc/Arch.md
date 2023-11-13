@@ -2,6 +2,34 @@
 
 This document outlines the architecture and design decisions made during the implementation of this project such as which tools to use, which design patterns to employe and why.
 
+Architectural documents have the greatest value when they can be enforced. This may be done by setting up static code analysis, using built-in, third party or even custom-made code analyzers, creating dependency diagrams and running automatic validations against them, as well as treating all warnings as errors. However it is good to document all architectural and desig decisions for easy onboarding purposes.
+
+- [Architecture](#architecture)
+  * [Solution structure](#solution-structure)
+    + [CompanyEmployees.Api](#companyemployeesapi)
+    + [CompanyEmployees.Common](#companyemployeescommon)
+    + [CompanyEmployees.Core](#companyemployeescore)
+    + [CompanyEmployees.Persistence](#companyemployeespersistence)
+    + [CompanyEmployees.UnitTests](#companyemployeesunittests)
+  * [Design principles](#design-principles)
+  * [Dependency management](#dependency-management)
+  * [Code style and quality](#code-style-and-quality)
+  * [Data persistence and auditing](#data-persistence-and-auditing)
+  * [User input validation](#user-input-validation)
+  * [Error handling](#error-handling)
+  * [Logging](#logging)
+  * [Testing](#testing)
+  * [Documentation](#documentation)
+  * [Other considerations for a production system](#other-considerations-for-a-production-system)
+    + [API Design](#api-design)
+    + [State Management](#state-management)
+    + [Monitoring and Health checks](#monitoring-and-health-checks)
+    + [Disaster recovery and backups](#disaster-recovery-and-backups)
+    + [Scalability and performance](#scalability-and-performance)
+    + [Complience with regulatory requirements](#complience-with-regulatory-requirements)
+    + [Security](#security)
+    + [Localization and Internationalization](#localization-and-internationalization)
+
 ## Solution structure
 
 The top level directory holds the solution-wide configuration files, specification and documentation. The architectural pattern closely followed, although somewhat simplified for the purposes of this project, is the onion architecture. This works well with TDD approach which was followed up to a point.
@@ -102,6 +130,10 @@ Logging was not tackled in this project at all. For a real-world project more at
 The services for creating an employee and a company have tests written. This was done while implementing them, using TDD approach. Smaller pieces of code should be unit tested, but this implementation as it stands now leaves little room for that.
 
 Visual Studio Enterprise has functionality to analyse code coverage and enforce the set rules. Other tools might be used instead such as dotCover.
+
+## Documentation
+
+Most documentation should be generated from documentation comments so adhering to best practices in that respect is important. Additionally, documents like this one and the Development Environment Setup document should be carefully written as they make onboarding of new team members easier.
 
 ## Other considerations for a production system
 
