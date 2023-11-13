@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using CompanyEmployees.Core.Services;
 using CompanyEmployees.Persistence;
+using CompanyEmployees.Persistence.Interceptors;
 using CompanyEmployees.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,13 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString(nameof(ApplicationDbContext));
 var serverVersion = ServerVersion.AutoDetect(connectionString);
+
+builder.Services.AddDbContext<AuditDbContext>(options =>
+{
+    options.UseMySql(connectionString, serverVersion);
+});
+
+builder.Services.AddScoped<AuditingInterceptor>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

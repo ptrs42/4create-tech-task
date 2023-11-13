@@ -16,7 +16,7 @@ namespace CompanyEmployees.Core.Services
     {
         private readonly IRepository<Company> _companyRepository;
         private readonly IRepository<Employee> _employeeRepository;
-        private readonly ILogger _logger;
+        private readonly ILogger<EmployeeService> _logger;
 
         /// <summary>
         /// This constructor initializes a new instance of the <c>EmployeeService</c> class.
@@ -24,7 +24,7 @@ namespace CompanyEmployees.Core.Services
         /// <param name="employeeRepository">The employee repository.</param>
         /// <param name="companyRepository">The company repository.</param>
         /// <param name="logger">The logger.</param>
-        public EmployeeService(IRepository<Employee> employeeRepository, IRepository<Company> companyRepository, ILogger logger)
+        public EmployeeService(IRepository<Employee> employeeRepository, IRepository<Company> companyRepository, ILogger<EmployeeService> logger)
         {
             _employeeRepository = employeeRepository;
             _companyRepository = companyRepository;

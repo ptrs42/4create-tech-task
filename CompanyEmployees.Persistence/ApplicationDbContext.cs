@@ -1,4 +1,5 @@
 ﻿using CompanyEmployees.Persistence.Entities;
+using CompanyEmployees.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompanyEmployees.Persistence
@@ -9,6 +10,8 @@ namespace CompanyEmployees.Persistence
     /// </summary>
     public class ApplicationDbContext : DbContext
     {
+        private readonly AuditingInterceptor _auditingInterceptor;
+
         /// <summary>
         /// This constructor initializes an instance of the <c>ApplicationDbContext</c> class with
         /// the appropriate context options passed to the base class.
@@ -18,8 +21,10 @@ namespace CompanyEmployees.Persistence
         /// properly configure the connection string in case of Development/Production environment
         /// or to configure In-Memory-Database used for automated and unit tests.
         /// </param>
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        /// <param name="auditingInterceptor">The auditing interceptor</param>
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, AuditingInterceptor auditingInterceptor) : base(options)
         {
+            _auditingInterceptor = auditingInterceptor;
         }
 
         /// <summary>
@@ -31,6 +36,13 @@ namespace CompanyEmployees.Persistence
         /// A database set representing employees.
         /// </summary>
         public DbSet<Employee> Employees { get; set; }
+
+        /// <inheritdoc/>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.AddInterceptors(_auditingInterceptor);
+        }
 
         /// <inheritdoc/>
         protected override void OnModelCreating(ModelBuilder modelBuilder)

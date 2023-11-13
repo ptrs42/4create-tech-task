@@ -1,4 +1,6 @@
-﻿namespace CompanyEmployees.UnitTests
+﻿using CompanyEmployees.Persistence.Interceptors;
+
+namespace CompanyEmployees.UnitTests
 {
     [TestFixture]
     public class EmployeeTests
@@ -146,12 +148,17 @@
                 .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
                 .Options;
 
-            var context = new ApplicationDbContext(options);
+            var auditingOptions = new DbContextOptionsBuilder<AuditDbContext>()
+                .UseInMemoryDatabase($"inMemoryDb_{DateTime.Now.ToFileTimeUtc()}")
+                .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning))
+                .Options;
+
+            var context = new ApplicationDbContext(options, new AuditingInterceptor(new AuditDbContext(auditingOptions)));
 
             _employeeRepo = new Repository<Employee>(context);
             _companyRepo = new Repository<Company>(context);
 
-            _service = new EmployeeService(_employeeRepo, _companyRepo, Mock.Of<ILogger>());
+            _service = new EmployeeService(_employeeRepo, _companyRepo, Mock.Of<ILogger<EmployeeService>>());
         }
     }
 }
