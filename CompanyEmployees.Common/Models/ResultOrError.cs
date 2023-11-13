@@ -1,6 +1,4 @@
-﻿using CompanyEmployees.Common.Errors;
-
-namespace CompanyEmployees.Common.Models
+﻿namespace CompanyEmployees.Common.Models
 {
     /// <summary>
     /// Class <c>ResultOrError</c> models a return type which can contain a result or an error and

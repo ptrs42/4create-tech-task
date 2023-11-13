@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "spec", "spec", "{3100049D-4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{F984AC77-24EC-4ECD-A0E6-79726C317485}"
 	ProjectSection(SolutionItems) = preProject
+		Arch.md = Arch.md
 		doc\DevEnvSetup.md = doc\DevEnvSetup.md
 	EndProjectSection
 EndProject

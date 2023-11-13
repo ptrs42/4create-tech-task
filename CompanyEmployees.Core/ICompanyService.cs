@@ -1,8 +1,8 @@
-﻿using CompanyEmployees.Common.Errors;
+﻿using CompanyEmployees.Common;
 using CompanyEmployees.Common.Models;
 using CompanyEmployees.Core.Dto;
 
-namespace CompanyEmployees.Core.Services
+namespace CompanyEmployees.Core
 {
     /// <summary>
     /// Interface <see cref="ICompanyService"/> can be used to create new companies

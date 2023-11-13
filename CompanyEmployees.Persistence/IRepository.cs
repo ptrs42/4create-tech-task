@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace CompanyEmployees.Persistence.Repositories
+namespace CompanyEmployees.Persistence
 {
     /// <summary>
     /// Interface <see cref="IRepository{TEntity}"/> can be used to query and save instances of

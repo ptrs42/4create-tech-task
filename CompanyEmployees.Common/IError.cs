@@ -1,4 +1,4 @@
-﻿namespace CompanyEmployees.Common.Errors
+﻿namespace CompanyEmployees.Common
 {
     /// <summary>
     /// Interface <c>IError</c> defines the necessary interface for all errors

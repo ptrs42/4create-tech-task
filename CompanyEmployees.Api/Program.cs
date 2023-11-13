@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using CompanyEmployees.Core;
 using CompanyEmployees.Core.Services;
 using CompanyEmployees.Persistence;
 using CompanyEmployees.Persistence.Interceptors;

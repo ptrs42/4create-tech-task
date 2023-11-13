@@ -1,4 +1,5 @@
-﻿using CompanyEmployees.Persistence.Interceptors;
+﻿using CompanyEmployees.Core;
+using CompanyEmployees.Persistence.Interceptors;
 
 namespace CompanyEmployees.UnitTests
 {

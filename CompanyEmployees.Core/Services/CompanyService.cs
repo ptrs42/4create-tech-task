@@ -2,8 +2,8 @@
 using CompanyEmployees.Common.Errors;
 using CompanyEmployees.Common.Models;
 using CompanyEmployees.Core.Dto;
+using CompanyEmployees.Persistence;
 using CompanyEmployees.Persistence.Entities;
-using CompanyEmployees.Persistence.Repositories;
 using Microsoft.Extensions.Logging;
 
 namespace CompanyEmployees.Core.Services
