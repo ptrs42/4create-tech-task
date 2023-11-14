@@ -61,9 +61,9 @@ namespace CompanyEmployees.Core.Services
                 }
 
                 var employeesToBeCreated = company.Employees?.Where(e => e.Email != null && e.Title != null) ?? Enumerable.Empty<EmployeeInCreateCompanyDto>();
-                var areAllEmployeesUnique = await _employeeRepository.AllAsync(e => !employeesToBeCreated.Select(ec => ec.Email).Contains(e.Email));
+                var newEmployeesAreUnique = await _employeeRepository.AllAsync(e => !employeesToBeCreated.Select(ec => ec.Email).Contains(e.Email));
 
-                if (!areAllEmployeesUnique)
+                if (!newEmployeesAreUnique)
                 {
                     return new(new EmployeeWithSameEmailAlreadyExistsError(Constants.Keys.EmployeesEmailKey));
                 }
@@ -88,7 +88,7 @@ namespace CompanyEmployees.Core.Services
                     return new(new CannotCreateEmployeesWithSameTitleInCompanyError());
                 }
 
-                areAllEmployeesUnique = allEmployeesToAddToCompany.DistinctBy(e => e.Email).Count() == allEmployeesToAddToCompany.Count;
+                var areAllEmployeesUnique = allEmployeesToAddToCompany.DistinctBy(e => e.Email).Count() == allEmployeesToAddToCompany.Count;
 
                 if (!areAllEmployeesUnique)
                 {

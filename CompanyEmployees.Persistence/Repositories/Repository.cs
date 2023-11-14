@@ -25,47 +25,23 @@ namespace CompanyEmployees.Persistence.Repositories
         /// <inheritdoc/>
         public async Task<TEntity> AddAsync(TEntity entity)
         {
-            try
-            {
-                var rv = await _context.AddAsync(entity);
+            var rv = await _context.AddAsync(entity);
 
-                await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
-                return rv.Entity;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            return rv.Entity;
         }
 
         /// <inheritdoc/>
         public async Task<bool> AllAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            try
-            {
-                return await _context.Set<TEntity>().AllAsync(predicate);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            return await _context.Set<TEntity>().AllAsync(predicate);
         }
 
         /// <inheritdoc/>
         public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            try
-            {
-                return await _context.Set<TEntity>().AnyAsync(predicate);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            return await _context.Set<TEntity>().AnyAsync(predicate);
         }
 
         /// <inheritdoc/>
@@ -77,29 +53,13 @@ namespace CompanyEmployees.Persistence.Repositories
         /// <inheritdoc/>
         public IEnumerable<TEntity> Where(Func<TEntity, bool> predicate)
         {
-            try
-            {
-                return _context.Set<TEntity>().Where(predicate);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            return _context.Set<TEntity>().Where(predicate);
         }
 
         /// <inheritdoc/>
         public IEnumerable<TEntity> WhereInclude<TProperty>(Func<TEntity, bool> predicate, Expression<Func<TEntity, TProperty>> include)
         {
-            try
-            {
-                return _context.Set<TEntity>().Include(include).Where(predicate);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            return _context.Set<TEntity>().Include(include).Where(predicate);
         }
     }
 }
